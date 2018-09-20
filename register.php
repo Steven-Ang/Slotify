@@ -1,3 +1,15 @@
+<?php
+
+if (isset($_POST["loginButton"])) {
+  
+}
+
+if (isset($_POST["registerButton"])) {
+  
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
