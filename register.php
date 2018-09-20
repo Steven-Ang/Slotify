@@ -3,7 +3,6 @@
 include("inc/classes/Account.php");
 
 $account = new Account();
-$account->register();
 
 include("inc/handlers/register-handler.php");
 include("inc/handlers/login-handler.php");
