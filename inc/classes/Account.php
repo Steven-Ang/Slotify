@@ -23,6 +23,13 @@ class Account {
     }
   }
 
+  public function getError($err) {
+    if (!in_array($err, $this->err)) {
+      $err = '';
+    }
+    return "<span class='errorMessage'>$err</span>";
+  }
+
   private function validateUsername($input) {
     if (strlen($input) > 25 || strlen($input) < 5) {
       array_push($this->err, "Your username must be between 5 and 25 characters.");

@@ -39,21 +39,30 @@ include("inc/handlers/login-handler.php");
       <h2>Create Your Free Account</h2>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError("Your username must be between 5 and 25 characters."); ?>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Your Username" required>
       </div>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError("Your first name must be between 5 and 25 characters."); ?>
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
       </div>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError("Your last name must be between 3 and 25 characters."); ?>
         <label for="lastName">Last Name</label>
         <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
       </div>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError("Your emails don't match."); ?>
+        <?php echo $account->getError("Invalid email."); ?>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Your Email" required>
       </div>
@@ -64,6 +73,10 @@ include("inc/handlers/login-handler.php");
       </div>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError("Passwords don't match."); ?>
+        <?php echo $account->getError("our password can only contain numbers and letters."); ?>
+        <?php echo $account->getError("Your password must be between 5 and 30 characters."); ?>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Your Password" required>
       </div>
