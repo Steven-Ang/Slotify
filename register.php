@@ -8,6 +8,12 @@ $account = new Account();
 include("inc/handlers/register-handler.php");
 include("inc/handlers/login-handler.php");
 
+function getInput($input) {
+  if (isset($_POST[$input])) {
+    echo $_POST[$input];
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,21 +49,21 @@ include("inc/handlers/login-handler.php");
         <!-- Error Message -->
         <?php echo $account->getError(Constants::$usernameLength); ?>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Your Username" required>
+        <input type="text" id="username" name="username" placeholder="Your Username" value="<?php getInput("username") ?>" required>
       </div>
 
       <div>
         <!-- Error Message -->
         <?php echo $account->getError(Constants::$firstNameLength); ?>
         <label for="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" value="<?php getInput("firstName") ?>" required>
       </div>
 
       <div>
         <!-- Error Message -->
         <?php echo $account->getError(Constants::$lastNameLength); ?>
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="<?php getInput("lastName") ?>" required>
       </div>
 
       <div>
@@ -65,12 +71,13 @@ include("inc/handlers/login-handler.php");
         <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
         <?php echo $account->getError(Constants::$invalidEmail); ?>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" value="<?php getInput("email") ?>" required>
       </div>
 
       <div>
         <label for="confirmEmail">Confirm Email</label>
-        <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Confirm Your Email" required>
+        <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Confirm Your Email" 
+        value="<?php getInput("confirmEmail") ?>" required>
       </div>
 
       <div>
