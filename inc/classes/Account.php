@@ -14,6 +14,13 @@ class Account {
     $this->validateLastName($lastName);
     $this->validateEmails($email, $confirmEmail);
     $this->validatePasswords($password, $confirmPassword);
+
+    if (empty($this->err)) {
+      // Insert into database
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private function validateUsername($input) {
@@ -33,8 +40,8 @@ class Account {
   }
   
   private function validateLastName($input) {
-    if (strlen($input) > 25 || strlen($input) < 5) {
-      array_push($this->err, "Your last name must be between 5 and 25 characters.");
+    if (strlen($input) > 25 || strlen($input) < 3) {
+      array_push($this->err, "Your last name must be between 3 and 25 characters.");
       return;
     }
   }
@@ -64,7 +71,7 @@ class Account {
       return;
     }
 
-    if (strlen($input) > 30 || strlen($input) < 5) {
+    if (strlen($password) > 30 || strlen($password) < 5) {
       array_push($this->err, "Your password must be between 5 and 30 characters.");
       return;
     }

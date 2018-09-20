@@ -65,7 +65,7 @@ include("inc/handlers/login-handler.php");
 
       <div>
         <label for="password">Password</label>
-        <input type="password" id="password" name="loginPassword" placeholder="Your Password" required>
+        <input type="password" id="password" name="password" placeholder="Your Password" required>
       </div>
 
       <div>
