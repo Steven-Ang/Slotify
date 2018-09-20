@@ -32,7 +32,7 @@ class Account {
 
   private function validateUsername($input) {
     if (strlen($input) > 25 || strlen($input) < 5) {
-      array_push($this->err, "Your username must be between 5 and 25 characters.");
+      array_push($this->err, Constants::$usernameLength);
       return;
     }
 
@@ -41,26 +41,26 @@ class Account {
   
   private function validateFirstName($input) {
     if (strlen($input) > 25 || strlen($input) < 5) {
-      array_push($this->err, "Your first name must be between 5 and 25 characters.");
+      array_push($this->err, Constants::$firstNameLength);
       return;
     }
   }
   
   private function validateLastName($input) {
     if (strlen($input) > 25 || strlen($input) < 3) {
-      array_push($this->err, "Your last name must be between 3 and 25 characters.");
+      array_push($this->err, Constants::$lastNameLength);
       return;
     }
   }
   
   private function validateEmails($email, $confirmEmail) {
     if ($email != $confirmEmail) {
-      array_push($this->err, "Your emails don't match.");
+      array_push($this->err, Constants::$emailsDoNotMatch);
       return;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      array_push($this->err, "Invalid email.");
+      array_push($this->err, Constants::$invalidEmail);
       return;
     }
 
@@ -69,17 +69,17 @@ class Account {
   
   private function validatePasswords($password, $confirmPassword) {
     if ($password != $confirmPassword) {
-      array_push($this->err, "Passwords don't match.");
+      array_push($this->err, Constants::$passwordsDoNotEmail);
       return;
     }
 
     if (preg_match('/[^A-Za-z0-9]/', $password)) {
-      array_push($this->err, "Your password can only contain numbers and letters.");
+      array_push($this->err, Constants::$passwordNotAlpha);
       return;
     }
 
     if (strlen($password) > 30 || strlen($password) < 5) {
-      array_push($this->err, "Your password must be between 5 and 30 characters.");
+      array_push($this->err, Constants::$passwordLength);
       return;
     }
   }
