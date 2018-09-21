@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#nowPlayingBar {
+  width: 100%;
+  background-color: #282828;
+  position: fixed;
+  bottom: 0;
+  height: 100px; /* Remove later */
+  min-width: 620px;
+}
