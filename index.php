@@ -26,7 +26,11 @@ if (isset($_SESSION['userLoggedIn'])) {
     <div id="nowPlayingBar">
 
       <div id="nowPlayingLeft">
-
+        <div class="content">
+          <span class="albumLink">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Dark_Side_of_the_Moon.png/220px-Dark_Side_of_the_Moon.png" class="albumArtwork" alt="">
+          </span>
+        </div>
       </div>
 
       <div id="nowPlayingCenter">

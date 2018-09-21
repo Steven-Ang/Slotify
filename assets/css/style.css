@@ -109,3 +109,10 @@ button, button:focus, button:active {
   border-radius: 2px;
   margin: 0;
 }
+
+.albumArtwork {
+  max-width: 70px;
+  margin-right: 15px;
+  float: left;
+  background-size: cover;
+}
