@@ -32,6 +32,8 @@ function getInput($input) {
       <h2>Login To Your Account</h2>
 
       <div>
+        <!-- Error Message -->
+        <?php echo $account->getError(Constants::$loginFailed); ?>
         <label for="loginUsername">Username</label>
         <input type="text" id="loginUsername" name="loginUsername" placeholder="Your Username" required>
       </div>

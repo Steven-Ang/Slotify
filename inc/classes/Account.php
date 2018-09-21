@@ -11,6 +11,19 @@ class Account {
     $this->err = [];
   }
 
+  public function login($username, $password) {
+    $password = md5($password);
+
+    $query = mysqli_query($this->con, "SELECT * FROM users where username='$username' AND password='$password'");
+
+    if (mysqli_num_rows($query) == 1) {
+      return true;
+    } else {
+      array_push($this->arr, Constants::$loginFailed);
+      return false;
+    }
+  }
+
   public function register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword) {
     $this->validateUsername($username);
     $this->validateFirstName($firstName);
