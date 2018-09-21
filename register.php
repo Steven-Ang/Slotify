@@ -60,34 +60,34 @@ function getInput($input) {
           <h2>Create Your Free Account</h2>
 
           <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Your Username" value="<?php getInput("username") ?>" required>
             <!-- Error Message -->
             <?php echo $account->getError(Constants::$usernameLength); ?>
             <?php echo $account->getError(Constants::$usernameTaken); ?>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Your Username" value="<?php getInput("username") ?>" required>
           </div>
 
           <div>
-            <!-- Error Message -->
-            <?php echo $account->getError(Constants::$firstNameLength); ?>
             <label for="firstName">First Name</label>
             <input type="text" id="firstName" name="firstName" placeholder="First Name" value="<?php getInput("firstName") ?>" required>
+            <!-- Error Message -->
+            <?php echo $account->getError(Constants::$firstNameLength); ?>
           </div>
 
           <div>
-            <!-- Error Message -->
-            <?php echo $account->getError(Constants::$lastNameLength); ?>
             <label for="lastName">Last Name</label>
             <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="<?php getInput("lastName") ?>" required>
+            <!-- Error Message -->
+            <?php echo $account->getError(Constants::$lastNameLength); ?>
           </div>
 
           <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" value="<?php getInput("email") ?>" required>
             <!-- Error Message -->
             <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
             <?php echo $account->getError(Constants::$invalidEmail); ?>
             <?php echo $account->getError(Constants::$emailTaken); ?>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" value="<?php getInput("email") ?>" required>
           </div>
 
           <div>
@@ -97,12 +97,12 @@ function getInput($input) {
           </div>
 
           <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your Password" required>
             <!-- Error Message -->
             <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
             <?php echo $account->getError(Constants::$passwordNotAlpha); ?>
             <?php echo $account->getError(Constants::$passwordLength); ?>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Your Password" required>
           </div>
 
           <div>

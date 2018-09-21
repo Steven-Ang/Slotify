@@ -125,6 +125,12 @@ html, body {
   color: #07d159;
 }
 
+.errorMessage {
+  display: block;
+  color: rgb(221, 82, 82);
+  padding-top: 10px;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color:    #fff;
 }
