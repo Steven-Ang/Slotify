@@ -2,9 +2,12 @@
 
 class Account {
 
+  private $con;
+
   private $err;
   
-  public function __construct() {
+  public function __construct($con) {
+    $this->con = $con;
     $this->err = [];
   }
 
@@ -17,7 +20,7 @@ class Account {
 
     if (empty($this->err)) {
       // Insert into database
-      return true;
+      return $this->addUser($username, $firstName, $lastName, $email, $password);
     } else {
       return false;
     }
@@ -30,6 +33,16 @@ class Account {
     return "<span class='errorMessage'>$err</span>";
   }
 
+  private function addUser($username, $firstName, $lastName, $email, $password) {
+    $encryptedPw = md5($password);
+    $profilePic = "assets/images/profile-pics/Default.jpg";
+    $date = date("Y-m-d");
+
+    $result = mysqli_query($this->con, "INSERT INTO users VALUES (NULL, '$username', '$firstName', '$lastName', '$email', '$encryptedPw', '$date', '$profilePic')");
+
+    return $result;
+  }
+
   private function validateUsername($input) {
     if (strlen($input) > 25 || strlen($input) < 5) {
       array_push($this->err, Constants::$usernameLength);
@@ -37,6 +50,11 @@ class Account {
     }
 
     // Todo: Check if username exists
+    $checkUsername = mysqli_query($this->con, "SELECT username FROM users WHERE username='$input'");
+    if (mysqli_num_rows($checkUsername) != 0) {
+      array_push($this->err, Constants::$usernameTaken);
+      return;
+    }
   }
   
   private function validateFirstName($input) {
@@ -65,6 +83,11 @@ class Account {
     }
 
     // Todo: Check that username hasn't already being used
+    $checkEmail = mysqli_query($this->con, "SELECT email FROM users WHERE email='$email'");
+    if (mysqli_num_rows($checkEmail) != 0) {
+      array_push($this->err, Constants::$emailTaken);
+      return;
+    }
   }
   
   private function validatePasswords($password, $confirmPassword) {
