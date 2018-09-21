@@ -41,12 +41,12 @@ function getInput($input) {
             <!-- Error Message -->
             <?php echo $account->getError(Constants::$loginFailed); ?>
             <label for="loginUsername">Username</label>
-            <input type="text" id="loginUsername" name="loginUsername" placeholder="Your Username" required>
+            <input type="text" id="loginUsername" name="loginUsername" placeholder="Your Username" value="<?php getInput("loginUsername") ?>" required>
           </div>
 
           <div>
             <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" name="loginPassword" placeholder="Your Password" required>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Your Password" value="<?php getInput("loginPassword") ?>" required>
           </div>
 
           <button type="submit" name="loginButton">Login</button>
