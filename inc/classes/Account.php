@@ -16,10 +16,10 @@ class Account {
 
     $query = mysqli_query($this->con, "SELECT * FROM users where username='$username' AND password='$password'");
 
-    if (mysqli_num_rows($query) == 1) {
+    if (mysqli_num_rows($query) === 1) {
       return true;
     } else {
-      array_push($this->arr, Constants::$loginFailed);
+      array_push($this->err, Constants::$loginFailed);
       return false;
     }
   }

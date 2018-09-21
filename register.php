@@ -121,5 +121,20 @@ function getInput($input) {
   </div>
 
 <script src="./assets/js/register.js"></script>
+<?php 
+
+if (isset($_POST["registerButton"])) {
+  echo '<script>
+  loginForm.style.display = "none";
+  registerForm.style.display = "block";
+  </script>';
+} else {
+  echo '<script>
+  loginForm.style.display = "block";
+  registerForm.style.display = "none";
+  </script>';
+}
+
+?>
 </body>
 </html>
