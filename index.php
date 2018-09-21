@@ -22,8 +22,22 @@ if (isset($_SESSION['userLoggedIn'])) {
   <title>Welcome to Slotify!</title>
 </head>
 <body>
-  <div id="nowPlayingBar">
-    
+  <div id="nowPlayingBarContainer">
+    <div id="nowPlayingBar">
+
+      <div id="nowPlayingLeft">
+
+      </div>
+
+      <div id="nowPlayingCenter">
+
+      </div>
+
+      <div id="nowPlayingRight">
+
+      </div>
+
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
