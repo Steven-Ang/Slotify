@@ -49,6 +49,10 @@ function getInput($input) {
           </div>
 
           <button type="submit" name="loginButton">Login</button>
+
+          <div class="hasAccount">
+            <a href="#"><span id="hideLogin">Don't have an account yet? Sign up here!</span></a>
+          </div>
         </form>
 
         <form action="register.php" method="POST" id="registerForm">
@@ -106,6 +110,10 @@ function getInput($input) {
           </div>
 
           <button type="submit" name="registerButton">Sign Up</button>
+
+          <div class="hasAccount">
+            <a href="#"><span id="hideRegister">Already have an account? Login in here!</span></a>
+          </div>
         </form>
 
       </div>
