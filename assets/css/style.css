@@ -116,3 +116,18 @@ button, button:focus, button:active {
   float: left;
   background-size: cover;
 }
+
+.trackInfo {
+  display: table;
+  color: #fff;
+}
+
+.trackName {
+  margin: 3px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.artistName {
+  color: #a0a0a0;
+}

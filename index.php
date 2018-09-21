@@ -30,6 +30,15 @@ if (isset($_SESSION['userLoggedIn'])) {
           <span class="albumLink">
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Dark_Side_of_the_Moon.png/220px-Dark_Side_of_the_Moon.png" class="albumArtwork" alt="">
           </span>
+          <div class="trackInfo">
+            <span class="trackName">
+              <span>Brain Damage</span>
+            </span>
+
+            <span class="artistName">
+              <span>Pink Floyd</span>
+            </span>
+          </div>
         </div>
       </div>
 
