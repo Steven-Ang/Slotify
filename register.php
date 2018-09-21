@@ -1,5 +1,7 @@
 <?php 
 
+include("inc/config.php");
+
 include("inc/classes/Constants.php");
 include("inc/classes/Account.php");
 
