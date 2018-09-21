@@ -23,6 +23,7 @@ function getInput($input) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/register.css">
   <title>Welcome to Slotify!</title>
 </head>
@@ -117,6 +118,17 @@ function getInput($input) {
         </form>
 
       </div>
+
+      <div id="loginText">
+        <h1>Get great music, right now</h1>
+        <h2>Listen to loads of songs for free.</h2>
+        <ul>
+          <li>Discover music you'll fall in love with</li>
+          <li>Create your own playlists</li>
+          <li>Follow artists to keep up-to-date</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 

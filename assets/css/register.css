@@ -36,7 +36,6 @@ html, body {
   width: 400px;
   padding: 45px;
   float: left;
-  border-right: 1px solid #999;
 }
 
 #inputContainer h2 {
@@ -91,6 +90,39 @@ html, body {
   font-weight: bold;
   font-size: 12px;
   color: #fff;
+}
+
+#loginText {
+  padding: 45px;
+  display: table-cell;
+}
+
+#loginText h1 {
+  line-height: 40px;
+  color: #07d159;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#loginText h2 {
+  margin: 35px 0;
+}
+
+#loginText ul {
+  padding: 0;
+}
+
+#loginText li {
+  font-size: 20px;
+  list-style-type: none;
+  padding: 7px;
+}
+
+#loginText li:before {
+  font-family: "Font Awesome 5 Free"; font-weight: 900; 
+  content: "\f00c";
+  padding-right: 10px;
+  color: #07d159;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
