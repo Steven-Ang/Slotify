@@ -51,7 +51,7 @@ function getInput($input) {
           <button type="submit" name="loginButton">Login</button>
 
           <div class="hasAccount">
-            <a href="#"><span id="hideLogin">Don't have an account yet? Sign up here!</span></a>
+            <a href="#"><span class="hideLogin">Don't have an account yet? Sign up here!</span></a>
           </div>
         </form>
 
@@ -112,7 +112,7 @@ function getInput($input) {
           <button type="submit" name="registerButton">Sign Up</button>
 
           <div class="hasAccount">
-            <a href="#"><span id="hideRegister">Already have an account? Login in here!</span></a>
+            <a href="#"><span class="hideRegister">Already have an account? Login in here!</span></a>
           </div>
         </form>
 
@@ -120,5 +120,6 @@ function getInput($input) {
     </div>
   </div>
 
+<script src="./assets/js/register.js"></script>
 </body>
 </html>

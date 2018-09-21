@@ -17,6 +17,10 @@ html, body {
   background-size: cover;
 }
 
+#registerForm {
+  display: none;
+}
+
 #loginContainer {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-weight: normal;
