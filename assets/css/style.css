@@ -55,9 +55,19 @@ button, button:focus, button:active {
   vertical-align: middle;
 }
 
+.controlButton:hover {
+  cursor: pointer;
+}
+
 .controlButton img {
   width: 20px;
   height: 20px;
+}
+
+.play img,
+.pause img {
+  width: 32px;
+  height: 32px;
 }
 
 .pause {
