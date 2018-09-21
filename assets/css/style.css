@@ -33,6 +33,11 @@ button, button:focus, button:active {
   min-width: 180px;
 }
 
+#nowPlayingRight {
+  position: relative;
+  margin-top: 16px;
+}
+
 #nowPlayingCenter {
   display: flex;
   flex-direction: column;
@@ -130,4 +135,14 @@ button, button:focus, button:active {
 
 .artistName {
   color: #a0a0a0;
+}
+
+.volumeBar {
+  width: 180px;
+  position: absolute;
+  right: 0;
+}
+
+.volumeBar .progressBar {
+  width: 125px;
 }
