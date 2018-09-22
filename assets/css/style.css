@@ -170,3 +170,16 @@ nav {
 img {
   width: 100%;
 }
+
+.group {
+  font-size: 16px;
+  border-top: 2px solid #a0a0a0;
+  height: 40px;
+  margin-bottom: 25px;
+}
+
+.navItem {
+  display: block;
+  letter-spacing: 1.5px;
+  height: 40px;
+}
