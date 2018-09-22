@@ -185,6 +185,14 @@ img {
   height: 40px;
 }
 
+.navItem a {
+  transition: all .3s;
+}
+
+.navItem a:hover {
+  color: #ddd;
+}
+
 .icon {
   position: absolute;
   right: 0;
