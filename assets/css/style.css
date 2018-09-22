@@ -146,3 +146,12 @@ button, button:focus, button:active {
 .volumeBar .progressBar {
   width: 125px;
 }
+
+#navBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: black;
+}
