@@ -154,4 +154,19 @@ button, button:focus, button:active {
   width: 220px;
   height: 100vh;
   background-color: black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: transparent;
+}
+
+.logo {
+  text-align: center;
+}
+
+img {
+  width: 100%;
 }
