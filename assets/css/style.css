@@ -7,6 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  color: #fff;
 }
 
 body {
@@ -189,11 +190,12 @@ img {
   height: 40px;
 }
 
-.navItem a {
+a {
+  color: #fff;
   transition: all .3s;
 }
 
-.navItem a:hover {
+a:hover {
   color: #ddd;
 }
 
@@ -206,5 +208,21 @@ img {
 
 #mainViewContainer {
   margin-left: 220px;
-  padding: 10px;
+  margin-bottom: 90px;
+  padding: 1px 10px;
+}
+
+.artwork {
+  width: 100%;
+}
+
+.albumTitle {
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.pageHeading {
+  color: #fff;
+  text-align: center;
 }
