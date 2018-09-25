@@ -13,7 +13,7 @@
     if (strlen($albumTitle) > 30) {
       $albumTitle = strstr(wordwrap($albumTitle, 30), "\n", true)."...";
     }
-    $output = "<div class='col s3 album'>";
+    $output = "<div class='col s12 m3 album'>";
     $output .= "<a href='album.php?id=".$row["id"] . "'>";
     $output .= "<img class='artwork' src='";
     $output .= $row["artwork"];
