@@ -229,6 +229,7 @@ a:hover {
 .pageHeading {
   color: #fff;
   text-align: center;
+  margin: 15px;
 }
 
 .entityInfo {
@@ -249,7 +250,16 @@ a:hover {
   padding: 5px 10px 5px 40px;
 }
 
-.rightSection span {
+.rightSection p {
   color: #939393;
   font-weight: 200;
+}
+
+.artistName {
+  color: #fff;
+}
+
+.artistName:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
