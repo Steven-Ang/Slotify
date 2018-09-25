@@ -1,3 +1,4 @@
+<?php ?>
 <div id="nowPlayingBarContainer">
   <div id="nowPlayingBar">
 
