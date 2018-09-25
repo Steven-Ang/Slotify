@@ -10,6 +10,10 @@ html, body {
   color: #fff;
 }
 
+h1,h2,h3,h4,h5,h5 {
+  margin: 0;
+}
+
 body {
   background-color: #181818;
 }
@@ -225,4 +229,27 @@ a:hover {
 .pageHeading {
   color: #fff;
   text-align: center;
+}
+
+.entityInfo {
+  padding: 40px 0 10px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.leftSection {
+  width: 30%;
+  float: left;
+  max-width: 250px;
+}
+
+.rightSection {
+  width: 70%;
+  float: left;
+  padding: 5px 10px 5px 40px;
+}
+
+.rightSection span {
+  color: #939393;
+  font-weight: 200;
 }
