@@ -263,3 +263,62 @@ a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.play-white {
+  width: 20px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.optionsButton {
+  width: 20px;
+  visibility: hidden;
+  padding-left: 10px;
+}
+
+.tracklistRow {
+  padding: 10px 20px 40px 20px;
+}
+
+.tracklistRow:hover {
+  background-color: #282828;
+}
+
+.tracklistRow:hover .play-white {
+  visibility: visible;
+}
+
+.tracklistRow:hover .optionsButton {
+  visibility: visible;
+}
+
+.tracklistRow:hover .trackNumber {
+  visibility: hidden;
+}
+
+.trackCount {
+  width: 8%;
+  float: left;
+}
+
+.trackInfo {
+  width: 75%;
+  float: left;
+}
+
+.trackName {
+  margin: 0;
+}
+
+.trackOptions {
+  width: 5%;
+  float: right;
+  text-align: center;
+}
+
+.trackDuration {
+  width: 12%;
+  float: left;
+  text-align: right;
+}

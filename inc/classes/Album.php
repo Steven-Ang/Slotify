@@ -41,6 +41,15 @@ class Album {
     $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id'");
     return mysqli_num_rows($query);
   }
+
+  public function getSongs() {
+    $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id' ORDER BY albumOrder");
+    $songs = [];
+    while ($row = mysqli_fetch_array($query)) {
+      array_push($songs, $row['id']);
+    }
+    return $songs;
+  }
 }
 
 ?>
