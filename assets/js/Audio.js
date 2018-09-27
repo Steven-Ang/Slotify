@@ -10,4 +10,8 @@ class Audio {
   play() {
     this.audio.play();
   }
+
+  pause() {
+    this.audio.pause();
+  }
 }

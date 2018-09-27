@@ -1,6 +1,5 @@
 let currentPlaylist = [];
 let audio = new Audio();
-setTrack(currentPlaylist[0], currentPlaylist, false);
 
 function setTrack(trackId, newPlaylist, play) {
   audio.setTrack("assets/music/Ziggy-Stardust/Five Years.mp3");
@@ -8,3 +7,29 @@ function setTrack(trackId, newPlaylist, play) {
     audio.play();
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const playBtn = document.querySelector(".play");
+  const pauseBtn = document.querySelector(".pause");
+
+  playBtn.addEventListener("click", () => {
+    playSong();
+  });
+
+  pauseBtn.addEventListener("click", () => {
+    pauseSong();
+  });
+
+  function playSong() {
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "inline-block"
+    audio.play();
+  }
+
+  function pauseSong() {
+    pauseBtn.style.display = "none";
+    playBtn.style.display = "inline-block";
+    audio.pause();
+  }
+  
+});

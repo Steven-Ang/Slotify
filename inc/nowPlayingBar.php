@@ -13,6 +13,7 @@ $jsonArr = json_encode($songs);
 
 <script>
 currentPlaylist = <?php echo $jsonArr ?>;
+setTrack(currentPlaylist[0], currentPlaylist, false);
 </script>
 
 <div id="nowPlayingBarContainer">

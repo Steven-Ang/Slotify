@@ -18,7 +18,7 @@
         <a href="yourMusic.php" class="navItemLink">Your Music</a>
       </div>
       <div class="navItem">
-        <a href="profile.php" class="navItemLink">Steven Ang</a>
+        <a href="profile.php" class="navItemLink"><?php echo $userLoggedIn; ?></a>
       </div>
     </div>
   </nav>
