@@ -233,7 +233,7 @@ a:hover {
 }
 
 .entityInfo {
-  padding: 40px 0 10px 0;
+  padding: 10px 0 10px 0;
   display: inline-block;
   width: 100%;
 }
@@ -272,7 +272,7 @@ a:hover {
 }
 
 .optionsButton {
-  width: 20px;
+  width: 30px;
   visibility: hidden;
   padding-left: 10px;
 }
