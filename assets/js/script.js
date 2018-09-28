@@ -8,9 +8,14 @@ function setTrack(trackId, newPlaylist, play) {
     audio.setTrack(track.path);
     audio.play();
 
-    $.post("inc/handlers/getArtistJSON.php", { artistId: track["artist"] }, function(data) {
+    $.post("inc/handlers/getArtistJSON.php", { artistId: track.artist }, function(data) {
       let artist = JSON.parse(data);
       $(".artistName span").text(artist.name);
+    });
+
+    $.post("inc/handlers/getAlbumJSON.php", { albumId: track.album }, function(data) {
+      let album = JSON.parse(data);
+      $(".albumLink img").attr("src", album.artwork);
     });
 
     $(".trackName span").text(track.title);
