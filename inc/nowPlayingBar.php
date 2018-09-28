@@ -12,8 +12,63 @@ $jsonArr = json_encode($songs);
 ?>
 
 <script>
-currentPlaylist = <?php echo $jsonArr ?>;
-setTrack(currentPlaylist[0], currentPlaylist, false);
+$(function() {
+
+  let currentPlaylist = [];
+  let audio = new Audio();
+
+  currentPlaylist = <?php echo $jsonArr ?>;
+  setTrack(currentPlaylist[0], currentPlaylist, false);
+
+  function setTrack(trackId, newPlaylist, play) {
+    
+    $.post("inc/handlers/getSongJSON.php", { songId: trackId }, function(data) {
+      let track = JSON.parse(data);
+      $(".trackName span").text(track.title);
+
+      $.post("inc/handlers/getArtistJSON.php", { artistId: track.artist }, function(data) {
+        let artist = JSON.parse(data);
+        $(".artistName span").text(artist.name);
+      });
+
+      $.post("inc/handlers/getAlbumJSON.php", { albumId: track.album }, function(data) {
+        let album = JSON.parse(data);
+        $(".albumLink img").attr("src", album.artwork);
+      });
+
+      audio.setTrack(track);
+      playSong();
+    });
+
+    if (play) {
+      audio.play();
+    }
+  }
+
+  $(".play").on("click", () => {
+    playSong();
+  });
+  $(".pause").on("click", () => {
+    pauseSong();
+  });
+
+  function playSong() {
+    if (audio.audio.currentTime === 0 ) {
+      $.post("inc/handlers/updatePlays.php", { songId: audio.currentlyPlaying.id });
+    } else {
+      console.log("Beef");
+    }
+    $(".play").hide();
+    $(".pause").show();
+    audio.play();
+  }
+
+  function pauseSong() {
+    $(".play").show();
+    $(".pause").hide();
+    audio.pause();
+  }
+})
 </script>
 
 <div id="nowPlayingBarContainer">
