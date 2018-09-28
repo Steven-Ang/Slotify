@@ -3,12 +3,14 @@ let audio = new Audio();
 
 function setTrack(trackId, newPlaylist, play) {
   
-  fetch("inc/handlers/getSongJSON.php")
-  .then(response => response.text())
-  .then(res => console.log(res))
-  .catch(err => console.log(err));
+  $.post("inc/handlers/getSongJSON.php", { songId: trackId }, function(data) {
+    let track = JSON.parse(data);
+    console.log(data);
+    audio.setTrack(track.path);
+    audio.play();
+  });
   
-  // audio.setTrack("assets/music/Ziggy-Stardust/Five Years.mp3");
+  audio.setTrack("assets/music/Ziggy-Stardust/Five Years.mp3");
   if (play) {
     audio.play();
   }
