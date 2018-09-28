@@ -5,9 +5,15 @@ function setTrack(trackId, newPlaylist, play) {
   
   $.post("inc/handlers/getSongJSON.php", { songId: trackId }, function(data) {
     let track = JSON.parse(data);
-    console.log(data);
     audio.setTrack(track.path);
     audio.play();
+
+    $.post("inc/handlers/getArtistJSON.php", { artistId: track["artist"] }, function(data) {
+      let artist = JSON.parse(data);
+      $(".artistName span").text(artist.name);
+    });
+
+    $(".trackName span").text(track.title);
   });
   
   audio.setTrack("assets/music/Ziggy-Stardust/Five Years.mp3");
@@ -17,26 +23,22 @@ function setTrack(trackId, newPlaylist, play) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const playBtn = document.querySelector(".play");
-  const pauseBtn = document.querySelector(".pause");
-
-  playBtn.addEventListener("click", () => {
+  $(".play").on("click", () => {
     playSong();
   });
-
-  pauseBtn.addEventListener("click", () => {
+  $(".pause").on("click", () => {
     pauseSong();
   });
 
   function playSong() {
-    playBtn.style.display = "none";
-    pauseBtn.style.display = "inline-block"
+    $(".play").hide();
+    $(".pause").show();
     audio.play();
   }
 
   function pauseSong() {
-    pauseBtn.style.display = "none";
-    playBtn.style.display = "inline-block";
+    $(".play").show();
+    $(".pause").hide();
     audio.pause();
   }
 

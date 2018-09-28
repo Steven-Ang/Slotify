@@ -26,11 +26,11 @@ setTrack(currentPlaylist[0], currentPlaylist, false);
         </span>
         <div class="trackInfo">
           <span class="trackName">
-            <span>Brain Damage</span>
+            <span></span>
           </span>
 
           <span class="artistName">
-            <span>Pink Floyd</span>
+            <span></span>
           </span>
         </div>
       </div>
