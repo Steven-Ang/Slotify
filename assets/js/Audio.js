@@ -5,6 +5,18 @@ class Audio {
     this.audio.addEventListener("canplay", () => {
       $(".progressTime.remaining").text(this.formatTime(this.audio.duration));
     });
+    this.audio.addEventListener("timeupdate", () => {
+      if (this.audio.duration) {
+        this.updateTimeProgressBar(this.audio);
+      }
+    });
+  }
+
+  updateTimeProgressBar(audio) {
+    $(".progressTime.current").text(this.formatTime(audio.currentTime));
+    $(".progressTime.remaining").text(this.formatTime(audio.duration - audio.currentTime));
+    let progress = audio.currentTime / audio.duration * 100;
+    $(".playbackBar .progress").css("width", progress + "%");
   }
 
   formatTime(duration) {

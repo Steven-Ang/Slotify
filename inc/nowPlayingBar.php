@@ -68,7 +68,7 @@ $(function() {
     $(".pause").hide();
     audio.pause();
   }
-})
+});
 </script>
 
 <div id="nowPlayingBarContainer">
