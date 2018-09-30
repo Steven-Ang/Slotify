@@ -16,6 +16,7 @@ $(function() {
 
   let currentPlaylist = [];
   let shufflePlaylist = [];
+  let tempPlaylist = [];
   let currentIndex = 0;
   let audio = new Audio();
   let mouseDown = false;
