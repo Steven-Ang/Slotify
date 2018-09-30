@@ -322,3 +322,7 @@ a:hover {
   float: left;
   text-align: right;
 }
+
+.progressBarBackground .progress {
+  width: 100%;
+}
