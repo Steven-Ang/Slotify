@@ -18,6 +18,7 @@ $(function() {
   let currentIndex = 0;
   let audio = new Audio();
   let mouseDown = false;
+  let repeat = false;
 
   currentPlaylist = <?php echo $jsonArr ?>;
   setTrack(currentPlaylist[0], currentPlaylist, false);
@@ -73,17 +74,33 @@ $(function() {
   }
 
   function nextSong() {
+
+    if (repeat) {
+      audio.setTime(0);
+      playSong();
+      return;
+    }
+
     if (currentIndex === currentPlaylist.length - 1) {
       currentIndex = 0;
     } else {
       currentIndex++;
     }
+
     let trackToPlay = currentPlaylist[currentIndex];
     setTrack(trackToPlay, currentPlaylist, true);
   }
 
+  function setRepeat() {
+    repeat = !repeat;
+    let imageName = repeat ? "repeat-active" : "repeat";
+    $(".controlButton.repeat img").attr("src", `assets/images/icons/${imageName}.png`);
+  }
+
   function setTrack(trackId, newPlaylist, play) {
     currentIndex = currentPlaylist.indexOf(trackId);
+    pauseSong();
+
     $.post("inc/handlers/getSongJSON.php", { songId: trackId }, function(data) {
       let track = JSON.parse(data);
       $(".trackName span").text(track.title);
@@ -117,6 +134,10 @@ $(function() {
 
   $(".next").on("click", () => {
     nextSong();
+  });
+
+  $(".repeat").on("click", () => {
+    setRepeat();
   });
 
   function playSong() {
