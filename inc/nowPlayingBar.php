@@ -140,6 +140,10 @@ $(function() {
     setRepeat();
   });
 
+  $(audio.audio).on("ended", () => {
+    nextSong();
+  });
+
   function playSong() {
     if (audio.audio.currentTime === 0 ) {
       $.post("inc/handlers/updatePlays.php", { songId: audio.currentlyPlaying.id });
