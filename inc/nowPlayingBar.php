@@ -15,6 +15,7 @@ $jsonArr = json_encode($songs);
 $(function() {
 
   let currentPlaylist = [];
+  let currentIndex = 0;
   let audio = new Audio();
   let mouseDown = false;
 
@@ -71,8 +72,18 @@ $(function() {
     audio.setTime(seconds);
   }
 
+  function nextSong() {
+    if (currentIndex === currentPlaylist.length - 1) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+    let trackToPlay = currentPlaylist[currentIndex];
+    setTrack(trackToPlay, currentPlaylist, true);
+  }
+
   function setTrack(trackId, newPlaylist, play) {
-    
+    currentIndex = currentPlaylist.indexOf(trackId);
     $.post("inc/handlers/getSongJSON.php", { songId: trackId }, function(data) {
       let track = JSON.parse(data);
       $(".trackName span").text(track.title);
@@ -99,16 +110,19 @@ $(function() {
   $(".play").on("click", () => {
     playSong();
   });
+
   $(".pause").on("click", () => {
     pauseSong();
+  });
+
+  $(".next").on("click", () => {
+    nextSong();
   });
 
   function playSong() {
     if (audio.audio.currentTime === 0 ) {
       $.post("inc/handlers/updatePlays.php", { songId: audio.currentlyPlaying.id });
-    } else {
-      console.log("Beef");
-    }
+    } 
     $(".play").hide();
     $(".pause").show();
     audio.play();
