@@ -106,6 +106,12 @@ $(function() {
     $(".controlButton.repeat img").attr("src", `assets/images/icons/${imageName}.png`);
   }
 
+  function setMute() {
+    audio.audio.muted = !audio.audio.muted;
+    let imageName = audio.audio.muted ? "volume-mute" : "volume";
+    $(".controlButton.volume img").attr("src", `assets/images/icons/${imageName}.png`);
+  }
+
   function setTrack(trackId, newPlaylist, play) {
     currentIndex = currentPlaylist.indexOf(trackId);
     pauseSong();
@@ -151,6 +157,10 @@ $(function() {
 
   $(".repeat").on("click", () => {
     setRepeat();
+  });
+
+  $(".volume").on("click", () => {
+    setMute();
   });
 
   $(audio.audio).on("ended", () => {
