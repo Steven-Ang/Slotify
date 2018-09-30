@@ -10,6 +10,14 @@ class Audio {
         this.updateTimeProgressBar(this.audio);
       }
     });
+    this.audio.addEventListener("volumechange", () => {
+      this.updateVolumeProgressBar(this.audio);
+    });
+  }
+
+  updateVolumeProgressBar(audio) {
+    let volume = audio.volume * 100;
+    $(".volumeBar .progress").css("width", volume + "%");
   }
 
   updateTimeProgressBar(audio) {
