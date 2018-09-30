@@ -73,6 +73,15 @@ $(function() {
     audio.setTime(seconds);
   }
 
+  function prevSong() {
+    if (audio.audio.currentTime === 3 || currentIndex === 0) {
+      audio.setTime(0);
+    } else {
+      currentIndex--;
+      setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+    }
+  }
+
   function nextSong() {
 
     if (repeat) {
@@ -134,6 +143,10 @@ $(function() {
 
   $(".next").on("click", () => {
     nextSong();
+  });
+
+  $(".previous").on("click", () => {
+    prevSong();
   });
 
   $(".repeat").on("click", () => {
