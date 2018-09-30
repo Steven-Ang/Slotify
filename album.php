@@ -43,9 +43,8 @@ $artist = $album->getArtist();
       $output .= "<span class='trackNumber'>$i</span>";
       $output .= "</div>";
 
-      $output .= "<div class='trackInfo'>";
-      $output .= "<span class='trackName'>".$albumSong->getTitle()." &minus; "."<span class='artistName'>".$albumArtist->getName()."</span>"."</span>";
-      // $output .= "<span class='artistName'>".$albumArtist->getName()."</span>";
+      $output .= "<div class='albumTrackInfo'>";
+      $output .= "<span class='albumTrackName'>".$albumSong->getTitle()." &minus; "."<span class='albumArtistName'>".$albumArtist->getName()."</span>"."</span>";
       $output .= "</div>";
 
       $output .= "<div class='trackOptions'>";

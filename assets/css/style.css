@@ -302,6 +302,11 @@ a:hover {
   float: left;
 }
 
+.albumTrackInfo {
+  width: 75%;
+  float: left;
+}
+
 .trackName {
   margin: 0;
 }
