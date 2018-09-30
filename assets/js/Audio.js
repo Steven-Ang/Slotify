@@ -33,6 +33,10 @@ class Audio {
     this.audio.src = track.path;
   }
 
+  setTime(time) {
+    this.audio.currentTime = time;
+  }
+
   play() {
     this.audio.play();
   }
