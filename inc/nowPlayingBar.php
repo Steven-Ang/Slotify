@@ -22,6 +22,10 @@ $(function() {
   setTrack(currentPlaylist[0], currentPlaylist, false);
   audio.updateVolumeProgressBar(audio.audio);
 
+  $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", (e) => {
+    e.preventDefault();
+  });
+
   $(".playbackBar .progressBar").mousedown(() => {
     mouseDown = true;
   });
