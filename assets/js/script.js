@@ -6,8 +6,10 @@ let audio = new Audio;
 let mouseDown = false;
 let repeat = false;
 let shuffle = false;
+let userLoggedIn;
 
 $(function() {
+  // Prevent the highlighting
   $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", (e) => {
     e.preventDefault();
   });
