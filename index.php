@@ -16,13 +16,13 @@ include("inc/includedFiles.php");
       $albumTitle = strstr(wordwrap($albumTitle, 30), "\n", true)."...";
     }
     $output = "<div class='col s12 m3 album'>";
-    $output .= "<a href='album.php?id=".$row["id"] . "'>";
+    $output .= "<span onclick='openPage(\"album.php?id=".$row["id"]."\")' role='link' tabIndex='0'>";
     $output .= "<img class='artwork' src='";
     $output .= $row["artwork"];
     $output .= "'>";
     $output .= "<p class='albumTitle'>".$albumTitle."</p>";
     $output .= "</div>";
-    $output .= "</a>";
+    $output .= "</span>";
     echo $output;
   }
 

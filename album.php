@@ -1,4 +1,4 @@
-<?php include("inc/header.php"); ?>
+<?php include("inc/includedFiles.php"); ?>
 
 <?php 
 
@@ -62,10 +62,8 @@ $artist = $album->getArtist();
     
     ?>
     <script>
-      let tempSongIds = '<?php echo json_encode($songs) ?>';
+      var tempSongIds = '<?php echo json_encode($songs) ?>';
       tempPlaylist = JSON.parse(tempSongIds);
     </script>
   </ul>
 </div>
-
-<?php include("inc/footer.php"); ?>
