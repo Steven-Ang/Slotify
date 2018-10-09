@@ -103,7 +103,8 @@ function openPage(url) {
 
   let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
   $("#mainContent").load(encodedUrl);
-  // load(encodedUrl, document.querySelector("#mainContent"));
+  $("body").scrollTop(0);
+  history.pushState(null, null, url);
   
 }
 
@@ -204,12 +205,11 @@ function setTrack(trackId, newPlaylist, play) {
     });
 
     audio.setTrack(track);
-    playSong();
-  });
 
-  if (play) {
-    audio.play();
-  }
+    if (play) {
+      playSong();
+    }
+  });
 }
 
 function playSong() {
