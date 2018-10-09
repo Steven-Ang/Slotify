@@ -87,6 +87,10 @@ $(function() {
   
 });
 
+function playFirstSong() {
+  setTrack(tempPlaylist[0], tempPlaylist, true);
+}
+
 function load(url, element) {
   let req = new XMLHttpRequest();
   req.open("GET", url, false);
