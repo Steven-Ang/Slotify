@@ -1,9 +1,9 @@
 <?php ?>
 <div id="navBarContainer">
   <nav class="navBar">
-    <a href="index.php" class="logo">
+    <span class="logo">
       <img src="assets/images/spotify.png" alt="">
-    </a>
+    </span>
     <div class="group">
       <div class="navItem">
         <a href="search.php" class="navItemLink">Search</a>
