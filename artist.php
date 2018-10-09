@@ -19,6 +19,7 @@ $artist = new Artist($con, $artistId);
       </div>
     </div>
   </div>
+  <h4>Songs</h4>
 </div>
 
 <div class="tracklistContainer border-bottom">
@@ -65,4 +66,30 @@ $artist = new Artist($con, $artistId);
       tempPlaylist = JSON.parse(tempSongIds);
     </script>
   </ul>
+  <h4 class="my-2">Albums</h4>
+</div>
+
+<div class="row">
+<?php 
+
+$query = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
+
+while($row = mysqli_fetch_array($query)) {
+  $albumTitle = $row["title"];
+  if (strlen($albumTitle) > 30) {
+    $albumTitle = strstr(wordwrap($albumTitle, 30), "\n", true)."...";
+  }
+  $output = "<div class='col s12 m3 album'>";
+  $output .= "<span onclick='openPage(\"album.php?id=".$row["id"]."\")' role='link' tabIndex='0'>";
+  $output .= "<img class='artwork' src='";
+  $output .= $row["artwork"];
+  $output .= "'>";
+  $output .= "<p class='albumTitle'>".$albumTitle."</p>";
+  $output .= "</div>";
+  $output .= "</span>";
+  echo $output;
+}
+
+?>
+
 </div>
