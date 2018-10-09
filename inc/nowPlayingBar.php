@@ -13,6 +13,7 @@ $jsonArr = json_encode($songs);
 
 <script>
   newPlaylist = <?php echo $jsonArr ?>;
+  audio = new Audio;
   setTrack(newPlaylist[0], newPlaylist, false);
   audio.updateVolumeProgressBar(audio.audio);
 </script>

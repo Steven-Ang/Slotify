@@ -2,7 +2,7 @@ let currentPlaylist = [];
 let shufflePlaylist = [];
 let tempPlaylist = [];
 let currentIndex = 0;
-let audio = new Audio;
+let audio;
 let mouseDown = false;
 let repeat = false;
 let shuffle = false;
@@ -53,64 +53,6 @@ $(function() {
     mouseDown = false;
   });
 
-  function timeFromOffset(mouse, progressBar) {
-    let percentage = mouse.offsetX / $(progressBar).width() * 100;
-    let seconds = audio.audio.duration * percentage / 100;
-    audio.setTime(seconds);
-  }
-  
-  function prevSong() {
-    if (audio.audio.currentTime === 3 || currentIndex === 0) {
-      audio.setTime(0);
-    } else {
-      currentIndex--;
-      setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
-    }
-  }
-
-  function nextSong() {
-    if (repeat) {
-      audio.setTime(0);
-      playSong();
-      return;
-    }
-  
-    if (currentIndex === currentPlaylist.length - 1) {
-      currentIndex = 0;
-    } else {
-      currentIndex++;
-    }
-  
-    let trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
-    setTrack(trackToPlay, currentPlaylist, true);
-  }
-  
-  function setRepeat() {
-    repeat = !repeat;
-    let imageName = repeat ? "repeat-active" : "repeat";
-    $(".controlButton.repeat img").attr("src", `assets/images/icons/${imageName}.png`);
-  }
-  
-  function setMute() {
-    audio.audio.muted = !audio.audio.muted;
-    let imageName = audio.audio.muted ? "volume-mute" : "volume";
-    $(".controlButton.volume img").attr("src", `assets/images/icons/${imageName}.png`);
-  }
-  
-  function setShuffle() {
-    shuffle = !shuffle;
-    let imageName = shuffle ? "shuffle-active" : "shuffle";
-    $(".controlButton.shuffle img").attr("src", `assets/images/icons/${imageName}.png`);
-    if (shuffle) {
-      // Randomize the playlist
-      shuffleArray(shufflePlaylist);
-      currentIndex = shufflePlaylist.indexOf(audio.currentlyPlaying.id);
-    } else {
-      // Deactivate the shuffle
-      currentIndex = currentPlaylist.indexOf(audio.currentlyPlaying.id);
-    }
-  }
-
   $(".play").on("click", () => {
     playSong();
   });
@@ -144,6 +86,75 @@ $(function() {
   });
   
 });
+
+function openPage(url) {
+  
+  if (url.indexOf("?") == -1) {
+		url += "?";
+	}
+
+	let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+  $("#mainContent").load(encodedUrl);
+  
+}
+
+function timeFromOffset(mouse, progressBar) {
+  let percentage = mouse.offsetX / $(progressBar).width() * 100;
+  let seconds = audio.audio.duration * percentage / 100;
+  audio.setTime(seconds);
+}
+
+function prevSong() {
+  if (audio.audio.currentTime === 3 || currentIndex === 0) {
+    audio.setTime(0);
+  } else {
+    currentIndex--;
+    setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+  }
+}
+
+function nextSong() {
+  if (repeat) {
+    audio.setTime(0);
+    playSong();
+    return;
+  }
+
+  if (currentIndex === currentPlaylist.length - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+
+  let trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
+  setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function setRepeat() {
+  repeat = !repeat;
+  let imageName = repeat ? "repeat-active" : "repeat";
+  $(".controlButton.repeat img").attr("src", `assets/images/icons/${imageName}.png`);
+}
+
+function setMute() {
+  audio.audio.muted = !audio.audio.muted;
+  let imageName = audio.audio.muted ? "volume-mute" : "volume";
+  $(".controlButton.volume img").attr("src", `assets/images/icons/${imageName}.png`);
+}
+
+function setShuffle() {
+  shuffle = !shuffle;
+  let imageName = shuffle ? "shuffle-active" : "shuffle";
+  $(".controlButton.shuffle img").attr("src", `assets/images/icons/${imageName}.png`);
+  if (shuffle) {
+    // Randomize the playlist
+    shuffleArray(shufflePlaylist);
+    currentIndex = shufflePlaylist.indexOf(audio.currentlyPlaying.id);
+  } else {
+    // Deactivate the shuffle
+    currentIndex = currentPlaylist.indexOf(audio.currentlyPlaying.id);
+  }
+}
 
 function shuffleArray(a) {
   for (let i = a.length - 1; i > 0; i--) {

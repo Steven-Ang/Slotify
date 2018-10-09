@@ -1,7 +1,7 @@
 <?php ?>
 <div id="navBarContainer">
   <nav class="navBar">
-    <span class="logo">
+    <span onclick="openPage('index.php')" class="logo">
       <img src="assets/images/spotify.png" alt="">
     </span>
     <div class="group">
