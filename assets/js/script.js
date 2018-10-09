@@ -201,11 +201,14 @@ function setTrack(trackId, newPlaylist, play) {
     $.post("inc/handlers/getArtistJSON.php", { artistId: track.artist }, function(data) {
       let artist = JSON.parse(data);
       $(".artistName span").text(artist.name);
+      $(".artistName span").attr("onclick", `openPage("artist.php?id=${artist.id}")`);
     });
 
     $.post("inc/handlers/getAlbumJSON.php", { albumId: track.album }, function(data) {
       let album = JSON.parse(data);
       $(".albumLink img").attr("src", album.artwork);
+      $(".albumLink img").attr("onclick", `openPage("album.php?id=${album.id}")`);
+      $(".trackName span").attr("onclick", `openPage("album.php?id=${album.id}")`);
     });
 
     audio.setTrack(track);

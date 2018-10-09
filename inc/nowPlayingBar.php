@@ -24,15 +24,15 @@ $jsonArr = json_encode($songs);
     <div id="nowPlayingLeft">
       <div class="content">
         <span class="albumLink">
-          <img src="" class="albumArtwork" alt="">
+          <img role="link" tabindex="0" src="" class="albumArtwork" alt="">
         </span>
         <div class="trackInfo">
           <span class="trackName">
-            <span></span>
+            <span role="link" tabindex="0" ></span>
           </span>
 
           <span class="artistName">
-            <span></span>
+            <span role="link" tabindex="0"></span>
           </span>
         </div>
       </div>
