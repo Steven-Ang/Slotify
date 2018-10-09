@@ -101,8 +101,9 @@ function openPage(url) {
 		url += "?";
 	}
 
-	let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
-  load(encodedUrl, document.querySelector("#mainContent"));
+  let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+  $("#mainContent").load(encodedUrl);
+  // load(encodedUrl, document.querySelector("#mainContent"));
   
 }
 

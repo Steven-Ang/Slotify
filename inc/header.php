@@ -5,7 +5,7 @@ include("inc/classes/Artist.php");
 include("inc/classes/Album.php");
 include("inc/classes/Song.php");
 
-// session_destroy();
+//session_destroy();
 
 if (isset($_SESSION['userLoggedIn'])) {
   $userLoggedIn = $_SESSION["userLoggedIn"];
