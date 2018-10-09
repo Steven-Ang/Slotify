@@ -87,14 +87,22 @@ $(function() {
   
 });
 
+function load(url, element) {
+  let req = new XMLHttpRequest();
+  req.open("GET", url, false);
+  req.send(null);
+
+  element.innerHTML = req.responseText; 
+}
+
 function openPage(url) {
-  
+
   if (url.indexOf("?") == -1) {
 		url += "?";
 	}
 
 	let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
-  $("#mainContent").load(encodedUrl);
+  load(encodedUrl, document.querySelector("#mainContent"));
   
 }
 
