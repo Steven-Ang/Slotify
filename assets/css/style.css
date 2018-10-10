@@ -213,7 +213,7 @@ a:hover {
 #mainViewContainer {
   margin-left: 220px;
   margin-bottom: 90px;
-  padding: 1px 10px;
+  padding: 1px;
 }
 
 .artwork {
@@ -361,4 +361,14 @@ a:hover {
 
 [role="link"] {
   cursor: pointer;
+}
+
+.searchContainer {
+  background-color: #242424;
+  padding: 20px 20px;
+}
+
+.searchInput {
+  letter-spacing: 2px;
+  color: white;
 }
