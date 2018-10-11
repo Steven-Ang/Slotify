@@ -372,3 +372,20 @@ a:hover {
   letter-spacing: 2px;
   color: white;
 }
+
+.searchAristName {
+  margin: 15px 0;
+}
+
+.searchAristName:hover {
+  text-decoration: underline;
+}
+
+.padding-left {
+  padding-left: 20px;
+}
+
+.noResults {
+  display: inline-block;
+  margin: 15px 0;
+}

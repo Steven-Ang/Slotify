@@ -31,6 +31,9 @@ if (isset($_GET["term"])) {
   });
 </script>
 
+<!-- If the search term is empty, don't load the rest of the code. -->
+<?php if ($search === '') { exit(); }?>
+
 <div class="tracklistContainer border-bottom" style="padding-left: 20px;">
   <ul class="tracklist">
     <h4>Songs</h4>
@@ -39,7 +42,7 @@ if (isset($_GET["term"])) {
     $query = mysqli_query($con, "SELECT id FROM songs WHERE title LIKE '$search%' LIMIT 10");
 
     if (mysqli_num_rows($query) === 0) {
-      echo "<span class='noResults'>"."No songs founded matching ".$search."</span>";
+      echo "<span class='noResults'>"."No songs found matching ".$search."</span>";
     }
     
     $songs = [];
@@ -87,23 +90,54 @@ if (isset($_GET["term"])) {
   </ul>
 </div>
 
-<div class="artistsContainer borderBottom" style="padding-left: 20px;">
+<div class="artistsContainer border-bottom" style="padding-left: 20px;">
   <h4>Artists</h4>
   <?php 
   $artistQuery = mysqli_query($con, "SELECT id FROM artists WHERE name like '$search%' LIMIT 10");
 
   if (mysqli_num_rows($artistQuery) === 0) {
-    echo "<span class='noResults'>"."No songs founded matching ".$search."</span>";
+    echo "<span class='noResults'>"."No artists found matching ".$search."</span>";
   }
 
   while ($row = mysqli_fetch_array($artistQuery)) {
     $artistFound = new Artist($con, $row["id"]);
 
     echo "<div class='searchResult'>
-            <div class='artistName'>
+            <div class='searchAristName'>
               <span role='link' tabindex='0' onclick='openPage(\"artist.php?id=".$artistFound->getId()."\")'>".$artistFound->getName()."</span>
             </div>
           </div>";
   }
+  
   ?>
+</div>
+
+<div class="row padding-left">
+  <h4 style="padding: 10px 0;">Albums</h4>
+<?php 
+
+$query = mysqli_query($con, "SELECT * FROM albums WHERE title like '$search%' LIMIT 10");
+
+if (mysqli_num_rows($query) === 0) {
+  echo "<span class='noResults'>"."No albums found matching ".$search."</span>";
+}
+
+while($row = mysqli_fetch_array($query)) {
+  $albumTitle = $row["title"];
+  if (strlen($albumTitle) > 30) {
+    $albumTitle = strstr(wordwrap($albumTitle, 30), "\n", true)."...";
+  }
+  $output = "<div class='col s12 m3 album' style='padding: 0 20px 0 0;'>";
+  $output .= "<span onclick='openPage(\"album.php?id=".$row["id"]."\")' role='link' tabIndex='0'>";
+  $output .= "<img class='artwork' src='";
+  $output .= $row["artwork"];
+  $output .= "'>";
+  $output .= "<p class='albumTitle'>".$albumTitle."</p>";
+  $output .= "</div>";
+  $output .= "</span>";
+  echo $output;
+}
+
+?>
+
 </div>

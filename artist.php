@@ -10,7 +10,7 @@ if (isset($_GET["id"])) {
 $artist = new Artist($con, $artistId);
 ?>
 
-<div class="entityInfo border-bottom">
+<div class="entityInfo border-bottom padding-left">
   <div class="centerSection">
     <div class="artistInfo">
       <h1 class="artistPageName"><?php echo $artist->getName() ?></h1>
@@ -22,7 +22,7 @@ $artist = new Artist($con, $artistId);
   <h4>Songs</h4>
 </div>
 
-<div class="tracklistContainer border-bottom">
+<div class="tracklistContainer border-bottom padding-left">
   <ul class="tracklist">
     <?php
     
@@ -69,7 +69,7 @@ $artist = new Artist($con, $artistId);
   <h4 class="my-2">Albums</h4>
 </div>
 
-<div class="row">
+<div class="row" style="padidng-left: 13px;">
 <?php 
 
 $query = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
