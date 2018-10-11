@@ -15,6 +15,10 @@ class Artist {
     return $artist["name"];
   }
 
+  public function getId() {
+    return $this->id;
+  }
+
   public function getSongIds() {
     $query = mysqli_query($this->con, "SELECT id FROM songs WHERE artist='$this->id' ORDER BY plays DESC");
     $songs = [];
