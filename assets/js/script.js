@@ -3,6 +3,7 @@ let shufflePlaylist = [];
 let tempPlaylist = [];
 let currentIndex = 0;
 let audio;
+let timer;
 let mouseDown = false;
 let repeat = false;
 let shuffle = false;
@@ -100,6 +101,10 @@ function load(url, element) {
 }
 
 function openPage(url) {
+
+  if (timer !== null) {
+    clearTimeout(timer);
+  }
 
   if (url.indexOf("?") == -1) {
 		url += "?";
