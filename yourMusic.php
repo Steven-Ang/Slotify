@@ -23,7 +23,7 @@ include("inc/includedFiles.php");
 
     $playlist = new Playlist($con, $row);
 
-    $output = "<div class='col s12 m3 album' style='padding: 0 20px 0 0;'>";
+    $output = "<div class='col s12 m3 album' style='padding: 0 20px 0 0;' role='link' tabindex='0' onclick='openPage(\"playlist.php?id=".$playlist->getId()."\")'>";
     $output .= "<div class='playlistImage'>";
     $output .= "<img src='assets/images/icons/playlist.png'>";
     $output .= "</div>";
