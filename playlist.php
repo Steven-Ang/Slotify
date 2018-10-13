@@ -31,22 +31,22 @@ $owner = new User($con, $playlist->getOwner());
   <ul class="tracklist">
     <?php
     
-    $songs = [];//$album->getSongs(); 
+    $songs = $playlist->getSongs(); 
 
     $i = 1;
 
     foreach($songs as $song) {
-      $albumSong = new Song($con, $song);
-      $albumArtist = $albumSong->getArtist();
+      $playlistSong = new Song($con, $song);
+      $songArtist = $playlistSong->getArtist();
       $output = "<li class='tracklistRow'>";
 
       $output .= "<div class='trackCount'>";
-      $output .= "<img class='play-white' src='assets/images/icons/play-white.png' onclick='setTrack(\"".$albumSong->getId()."\", tempPlaylist, true)'>";
+      $output .= "<img class='play-white' src='assets/images/icons/play-white.png' onclick='setTrack(\"".$playlistSong->getId()."\", tempPlaylist, true)'>";
       $output .= "<span class='trackNumber'>$i</span>";
       $output .= "</div>";
 
       $output .= "<div class='albumTrackInfo'>";
-      $output .= "<span class='albumTrackName'>".$albumSong->getTitle()." &minus; "."<span class='albumArtistName'>".$albumArtist->getName()."</span>"."</span>";
+      $output .= "<span class='albumTrackName'>".$playlistSong->getTitle()." &minus; "."<span class='albumArtistName'>".$songArtist->getName()."</span>"."</span>";
       $output .= "</div>";
 
       $output .= "<div class='trackOptions'>";
@@ -54,7 +54,7 @@ $owner = new User($con, $playlist->getOwner());
       $output .= "</div>";
 
       $output .= "<div class='trackDuration'>";
-      $output .= "<span class='duration'>".$albumSong->getDuration()."</span>";
+      $output .= "<span class='duration'>".$playlistSong->getDuration()."</span>";
       $output .= "</div>";
 
       $output .= "</li>";
