@@ -21,11 +21,13 @@ include("inc/includedFiles.php");
 
   while($row = mysqli_fetch_array($query)) {
 
+    $playlist = new Playlist($con, $row);
+
     $output = "<div class='col s12 m3 album' style='padding: 0 20px 0 0;'>";
     $output .= "<div class='playlistImage'>";
     $output .= "<img src='assets/images/icons/playlist.png'>";
     $output .= "</div>";
-    $output .= $row["name"];
+    $output .= $playlist->getName();
     $output .= "</div>";
     echo $output;
   }
