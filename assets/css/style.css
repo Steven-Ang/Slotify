@@ -347,6 +347,7 @@ a:hover {
 .green {
   background-color: #2ebd59;
   border-color: #2ebd59;
+  text-transform: uppercase;
   margin: 15px 0;
 }
 
@@ -388,4 +389,12 @@ a:hover {
 .noResults {
   display: inline-block;
   margin: 15px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.playlistContainer {
+  padding: 10px 0;
 }

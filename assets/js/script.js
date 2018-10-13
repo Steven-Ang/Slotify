@@ -238,3 +238,19 @@ function pauseSong() {
   $(".pause").hide();
   audio.pause();
 }
+
+function createPlaylist() {
+  let popup = prompt("Enter the name of your playlist.");
+  if (popup !== null) {
+    $.post("inc/handlers/createPlaylist.php", {name: popup, username: userLoggedIn})
+    .done((err) => {
+
+      if (err !== '') {
+        alert(err);
+        return;
+      }
+
+      openPage("yourMusic.php");
+    });
+  }
+}

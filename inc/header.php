@@ -6,6 +6,12 @@ include("inc/classes/Album.php");
 include("inc/classes/Song.php");
 
 //session_destroy();
+  
+if (isset($_SESSION['userLoggedIn'])) {
+  $userLoggedIn = $_SESSION["userLoggedIn"];
+} else {
+  header("Location: register.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -17,17 +23,6 @@ include("inc/classes/Song.php");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Welcome to Slotify!</title>
-  <?php 
-  
-  if (isset($_SESSION['userLoggedIn'])) {
-    $userLoggedIn = $_SESSION["userLoggedIn"];
-    echo "<script>userLoggedIn = '$userLoggedIn'; </script>";
-  } else {
-    header("Location: register.php");
-  }
-  
-  
-  ?>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
