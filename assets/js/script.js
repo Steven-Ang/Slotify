@@ -254,3 +254,19 @@ function createPlaylist() {
     });
   }
 }
+
+function deletePlaylist(id) {
+  let prompt = confirm("Are you sure?");
+  if (prompt) {
+    $.post("inc/handlers/deletePlaylist.php", { playlistId: id })
+    .done((err) => {
+
+      if (err !== '') {
+        alert(err);
+        return;
+      }
+
+      openPage("yourMusic.php");
+    });
+  }
+}
