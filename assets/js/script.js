@@ -22,6 +22,27 @@ $(function() {
     }
   });
 
+  $(document).on("change", "select.playlist", function() {
+    let select = $(this);
+    let playlistId = $(this).val();
+    let songId = $(this).prev(".song-id").val();
+
+    $.post("inc/handlers/addToPlaylist.php", { playlistId: playlistId, songId: songId })
+    .done(function(err) {
+
+      console.log(playlistId);
+      console.log(songId);
+
+      if (err !== "") {
+        alert(err);
+        return;
+      }
+
+      hideOptionsMenu();
+      select.val("");
+    });
+  });
+
   // Prevent the highlighting
   $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", (e) => {
     e.preventDefault();
@@ -291,8 +312,10 @@ function hideOptionsMenu() {
 }
 
 function showOptionsMenu(btn) {
+  let songId = $(btn).prevAll(".song-id").val();
   let menu = $(".optionsMenu");
   let menuWidth = menu.width();
+  menu.find(".song-id").val(songId);
   let scrollTop = $(window).scrollTop();
   let elementOffset = $(btn).offset().top;
   let top = elementOffset - scrollTop;

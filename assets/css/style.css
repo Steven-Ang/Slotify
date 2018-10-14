@@ -18,6 +18,10 @@ body {
   background-color: #181818;
 }
 
+select {
+  display: block !important;
+}
+
 button, button:focus, button:active {
   background-color: transparent !important;
 }
@@ -415,10 +419,18 @@ a:hover {
   color: rgba(147, 147, 147, .8);
   cursor: pointer;
   height: 40px;
+  background-color: #282828;
 }
 
 .item:hover {
   color: #fff;
   background-color: #333;
   border-color: #333;
+}
+
+.playlist {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none !important;
 }
