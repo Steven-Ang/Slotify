@@ -48,7 +48,7 @@ $artist = $album->getArtist();
       $output .= "</div>";
 
       $output .= "<div class='trackOptions'>";
-      $output .= "<img class='optionsButton' src='assets/images/icons/more.png'>";
+      $output .= "<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>";
       $output .= "</div>";
 
       $output .= "<div class='trackDuration'>";
@@ -66,4 +66,14 @@ $artist = $album->getArtist();
       tempPlaylist = JSON.parse(tempSongIds);
     </script>
   </ul>
+</div>
+
+<div class="optionsMenu">
+  <input type="hidden" class="song-id">
+  <div class="item">
+    Add to playlist
+  </div>
+  <div class="item">
+    Item 2
+  </div>
 </div>

@@ -10,6 +10,18 @@ let shuffle = false;
 let userLoggedIn;
 
 $(function() {
+  $(window).scroll(() => {
+    hideOptionsMenu();
+  });
+
+  $(document).click((e) => {
+    target = $(e.target);
+
+    if (!target.hasClass("item") && !target.hasClass("optionsButton")) {
+      hideOptionsMenu();
+    }
+  });
+
   // Prevent the highlighting
   $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", (e) => {
     e.preventDefault();
@@ -269,4 +281,22 @@ function deletePlaylist(id) {
       openPage("yourMusic.php");
     });
   }
+}
+
+function hideOptionsMenu() {
+  let menu = $(".optionsMenu");
+  if (menu.css("display") !== "none") {
+    menu.css("display", "none");
+  }
+}
+
+function showOptionsMenu(btn) {
+  let menu = $(".optionsMenu");
+  let menuWidth = menu.width();
+  let scrollTop = $(window).scrollTop();
+  let elementOffset = $(btn).offset().top;
+  let top = elementOffset - scrollTop;
+  let left = $(btn).position().left;
+
+  menu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "block" });
 }

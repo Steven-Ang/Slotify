@@ -398,3 +398,27 @@ a:hover {
 .playlistContainer {
   padding: 10px 0;
 }
+
+.optionsMenu {
+  position: fixed;
+  display: none;
+  background-color: #282828;
+  width: 200px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.item {
+  width: 100%;
+  padding: 12px 20px;
+  color: rgba(147, 147, 147, .8);
+  cursor: pointer;
+  height: 40px;
+}
+
+.item:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+}
