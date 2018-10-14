@@ -50,7 +50,8 @@ $owner = new User($con, $playlist->getOwner());
       $output .= "</div>";
 
       $output .= "<div class='trackOptions'>";
-      $output .= "<img class='optionsButton' src='assets/images/icons/more.png'>";
+      $output .= "<input type='hidden' class='song-id' value='".$playlistSong->getId()."'>";
+      $output .= "<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>";
       $output .= "</div>";
 
       $output .= "<div class='trackDuration'>";
@@ -68,4 +69,9 @@ $owner = new User($con, $playlist->getOwner());
       tempPlaylist = JSON.parse(tempSongIds);
     </script>
   </ul>
+</div>
+
+<div class="optionsMenu">
+  <input type="hidden" class="song-id">
+  <?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
 </div>

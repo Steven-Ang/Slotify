@@ -69,7 +69,8 @@ if (isset($_GET["term"])) {
       $output .= "</div>";
 
       $output .= "<div class='trackOptions'>";
-      $output .= "<img class='optionsButton' src='assets/images/icons/more.png'>";
+      $output .= "<input type='hidden' class='song-id' value='".$albumSong->getId()."'>";
+      $output .= "<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>";
       $output .= "</div>";
 
       $output .= "<div class='trackDuration'>";
@@ -139,4 +140,9 @@ while($row = mysqli_fetch_array($query)) {
 
 ?>
 
+</div>
+
+<div class="optionsMenu">
+  <input type="hidden" class="song-id">
+  <?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
 </div>
