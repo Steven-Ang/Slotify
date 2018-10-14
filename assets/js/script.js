@@ -288,6 +288,20 @@ function createPlaylist() {
   }
 }
 
+function removeFromPlaylist(btn, playlistId) {
+  let songId = $(btn).prevAll(".song-id").val();
+
+  $.post("inc/handlers/removeFromPlaylist.php", { playlistId: playlistId, songId: songId })
+  .done((err) => {
+    if (err !== '') {
+      alert(err);
+      return;
+    }
+
+    openPage("playlist.php?id=" + playlistId);
+  });
+}
+
 function deletePlaylist(id) {
   let prompt = confirm("Are you sure?");
   if (prompt) {
