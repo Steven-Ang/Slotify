@@ -336,6 +336,7 @@ a:hover {
 }
 
 .button {
+  display: block;
   color: #fff;
   cursor: pointer;
   margin-bottom: 10px;
@@ -433,4 +434,8 @@ a:hover {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none !important;
+}
+
+.centerSection {
+  text-align: center;
 }
