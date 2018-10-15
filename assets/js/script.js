@@ -337,3 +337,9 @@ function showOptionsMenu(btn) {
 
   menu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "block" });
 }
+
+function logout() {
+  $.post("inc/handlers/logout.php", () => {
+    location.reload();
+  });
+}
