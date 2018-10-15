@@ -439,3 +439,39 @@ a:hover {
 .centerSection {
   text-align: center;
 }
+
+.user-container {
+  width: 95%;
+  margin: 30px auto;
+}
+
+.email-container,
+.password-container {
+  text-align: center;
+}
+
+.email,
+.oldPassword,
+.newPassword,
+.confirmNewPassword {
+  color: rgba(255,255,255,.8) !important;
+  height: 50px !important;
+  padding: 10px 0 10px 10px !important;
+  margin: 5px 0 !important;
+  background-color: #1f1f1f !important;
+  font-size: 24px !important;
+  border-bottom: 1px solid #1f1f1f !important;
+  letter-spacing: 1px !important;
+}
+
+.email:focus,
+.oldPassword:focus,
+.newPassword:focus,
+.confirmNewPassword:focus {
+  border-bottom: 1px solid #1f1f1f !important;
+  box-shadow: 0 1px 0 0 #1f1f1f !important;
+}
+
+.message {
+  color: #2ebd59;
+}

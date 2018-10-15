@@ -343,3 +343,12 @@ function logout() {
     location.reload();
   });
 }
+
+function updateEmail(email) {
+  let emailValue = $("." + email).val();
+
+  $.post("inc/handlers/updateEmail.php", { email: emailValue, username: userLoggedIn })
+  .done((res) => {
+    $("." + email).nextAll(".message").text(res);
+  });
+}
