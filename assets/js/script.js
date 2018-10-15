@@ -352,3 +352,13 @@ function updateEmail(email) {
     $("." + email).nextAll(".message").text(res);
   });
 }
+
+function updatePassword(currentPassword, password, confirmPassword) {
+  let oldPassword = $("." + currentPassword).val();
+  let newPassword = $("." + password).val();
+  let confirmNewPassword = $("." + confirmPassword).val();
+
+  $.post("inc/handlers/updatePassword.php", { oldPassword: oldPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword, username: userLoggedIn }, (res) => {
+    $("." + currentPassword).nextAll(".message").text(res);
+  });
+}
